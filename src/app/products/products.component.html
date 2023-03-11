@@ -1,7 +1,7 @@
-<a *ngIf='!checkout' id="cart-link" (click)="goToCheckout()" href="#checkout">
+<a *ngIf="!checkout" id="cart-link" (click)="goToCheckout()" href="#checkout">
   <img src="../../assets/cart.png" alt="cart" width="32px" height="32px" />
 </a>
-<div *ngIf='!checkout' id="products-flex">
+<div *ngIf="!checkout" id="products-flex">
   <table *ngFor="let product of products">
     <tr>
       <td id="img-cell">
@@ -22,6 +22,7 @@
           min="1"
           value="1"
         /><button
+          class="addToCart"
           (click)="addToCart(product.name, product.id, product.price, quantity.value);quantity.value='1';"
         >
           Add to Cart
@@ -30,14 +31,21 @@
     </tr>
   </table>
 </div>
-<div *ngIf='checkout' id="checkout-backdrop">
+<div *ngIf="checkout" id="checkout-backdrop">
   <div id="checkout" *ngIf="checkout">
     <h3>Checkout</h3>
-    <p *ngFor='let item of Cart'>
+    <p *ngFor="let item of Cart">
       {{ item.name }} <i>({{ item.quantity }})</i> --- {{ item.cost }}
+      <img
+	class='remove'
+        src="../../assets/remove.png"
+        alt="remove"
+	width='25px' height='25px'
+        (click)="removeItem(item.name, item.id, item.price, item.cost)"
+      />
     </p>
     <hr />
-    <p><b>Total: {{ total }}</b></p>
+    <p><b>Total = {{ total }}</b></p>
     <div id="buttons">
       <button id="checkoutBtn" (click)="completeCheckout()">Checkout</button>
       <button class="otherBtn" (click)="clearCart()">Clear Cart</button>
@@ -45,4 +53,3 @@
     </div>
   </div>
 </div>
-

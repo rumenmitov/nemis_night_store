@@ -42,10 +42,6 @@ div#products-flex table img {
   aspect-ratio: auto;
 }
 
-#info-cell {
-  padding-left: 3vw;
-}
-
 @media only screen and (min-width: 1200px) {
   div#products-flex table {
     font-size: 75%;
@@ -58,6 +54,33 @@ div#products-flex table img {
     padding: 1vh 1.5vw;
     width: 12vw;
   }
+}
+
+#info-cell {
+  padding-left: 3vw;
+}
+
+.remove:hover {
+  cursor: pointer;
+}
+
+input {
+  font-size: 90%;
+  border-color: purple;
+  color: purple;
+  width: 3vw;
+  text-align: center;
+}
+
+.addToCart {
+  font-size: 90%;
+  font-weight: bold;
+  background-color: purple;
+  color: white;
+}
+
+.addToCart:hover {
+  cursor: pointer;
 }
 
 div#checkout-backdrop {
@@ -74,4 +97,30 @@ div#checkout {
   border: 2px solid purple;
   border-radius: 5px;
   background-color: white;
+}
+
+#buttons {
+  display: flex;
+}
+
+#buttons > * {
+  border: 1px solid purple;
+  border-radius: 5px;
+  margin-right: 1vw;
+  font-size: 90%;
+}
+
+#buttons > *:hover {
+  cursor: pointer;
+}
+
+#checkoutBtn {
+  align-content: flex-start;
+  font-weight: bold;
+  background-color: purple;
+  color: white;
+}
+
+.otherBtn {
+  align-content: flex-end;
 }

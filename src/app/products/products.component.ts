@@ -57,6 +57,22 @@ export class ProductsComponent {
     }
   }
 
+  removeItem(name : string, id : string, price : number, cost : number) : void {
+    if (this.Cart) {
+      this.Cart.forEach((item : any, index : number)=>{
+	if (item.id === id) {
+	  item.quantity--;
+	  item.cost -= price;
+	  this.total -= price;
+	  if (item.quantity < 1) {
+	    this.Cart.splice(index, 1);
+	  }
+	  localStorage.setItem('cart', JSON.stringify(this.Cart));
+	}
+      });
+    }
+  }
+
   goToCheckout() {
     this.checkout = true;
     let cart: any = localStorage.getItem('cart');
