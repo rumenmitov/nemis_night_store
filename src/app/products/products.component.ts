@@ -28,7 +28,6 @@ export class ProductsComponent {
         if (item.id === id) {
           item.quantity += quantity;
           item.cost += quantity * price;
-          this.total += quantity * price;
           localStorage.setItem('cart', JSON.stringify(cart));
           itemExists = true;
         }
@@ -55,20 +54,32 @@ export class ProductsComponent {
       ];
       localStorage.setItem('cart', JSON.stringify(cart));
     }
+    this.notify(
+      'Added to Cart!',
+      name + ' (' + quantity + ') --- ' + price * quantity + ' €',
+      '../../assets/tick.png',
+      2000
+    );
   }
 
-  removeItem(name : string, id : string, price : number, cost : number) : void {
+  removeItem(name: string, id: string, price: number, cost: number): void {
     if (this.Cart) {
-      this.Cart.forEach((item : any, index : number)=>{
-	if (item.id === id) {
-	  item.quantity--;
-	  item.cost -= price;
-	  this.total -= price;
-	  if (item.quantity < 1) {
-	    this.Cart.splice(index, 1);
-	  }
-	  localStorage.setItem('cart', JSON.stringify(this.Cart));
-	}
+      this.Cart.forEach((item: any, index: number) => {
+        if (item.id === id) {
+          item.quantity--;
+          item.cost -= price;
+          this.total -= price;
+          if (item.quantity < 1) {
+            this.Cart.splice(index, 1);
+          }
+          localStorage.setItem('cart', JSON.stringify(this.Cart));
+          this.notify(
+            'Item Removed!',
+            `${name} --- ${price} €`,
+            '../../assets/trash-bin.png',
+            2000
+          );
+        }
       });
     }
   }
@@ -102,10 +113,47 @@ export class ProductsComponent {
     this.Cart = null;
     this.checkout = false;
     this.total = 0;
+    this.notify(
+      'Cart Cleared!',
+      'We hope you find something else you might like! :)',
+      '../../assets/trash-bin.png',
+      2000
+    );
   }
 
   closeCart() {
     this.checkout = false;
     this.total = 0;
+  }
+
+  notify(title: string, message: string, icon: string, duration: number) {
+    if (Notification.permission === 'granted') {
+      const notification = new Notification(title, {
+        body: message,
+        icon: icon
+      });
+      setTimeout(() => {
+        notification.close();
+      }, duration);
+    } else {
+      Notification.requestPermission().then((permission) => {
+        if (permission === 'granted') {
+          const welcomeNotification = new Notification(
+            "Welcome to Nemi's Night!"
+          );
+          setTimeout(() => {
+            welcomeNotification.close();
+          }, 3000);
+
+          const notification = new Notification(title, {
+            body: message,
+            icon: icon
+          });
+          setTimeout(() => {
+            notification.close();
+          }, duration);
+        }
+      });
+    }
   }
 }

@@ -1,5 +1,5 @@
-<a *ngIf="!checkout" id="cart-link" (click)="goToCheckout()" href="#checkout">
-  <img src="../../assets/cart.png" alt="cart" width="32px" height="32px" />
+<a title='My Cart' *ngIf="!checkout" id="cart-link" (click)="goToCheckout()" href="#checkout">
+  <img src="../../assets/cart.png" alt="cart" width="40px" height="40px" />
 </a>
 <div *ngIf="!checkout" id="products-flex">
   <table *ngFor="let product of products">
@@ -12,7 +12,7 @@
       </td>
       <td id="info-cell">
         <p>{{ product.name }}</p>
-        <p>{{ product.price }}</p>
+        <p>{{ product.price }} €</p>
         <hr />
         <input
           #quantity
@@ -35,7 +35,7 @@
   <div id="checkout" *ngIf="checkout">
     <h3>Checkout</h3>
     <p *ngFor="let item of Cart">
-      {{ item.name }} <i>({{ item.quantity }})</i> --- {{ item.cost }}
+      {{ item.name }} <i>({{ item.quantity }})</i> --- {{ item.cost }} €
       <img
 	class='remove'
         src="../../assets/remove.png"
@@ -45,7 +45,7 @@
       />
     </p>
     <hr />
-    <p><b>Total = {{ total }}</b></p>
+    <p><b>Total = {{ total }} €</b></p>
     <div id="buttons">
       <button id="checkoutBtn" (click)="completeCheckout()">Checkout</button>
       <button class="otherBtn" (click)="clearCart()">Clear Cart</button>
