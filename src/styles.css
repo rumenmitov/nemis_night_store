@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 3vw;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0.75vw;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: purple;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(90, 10, 120);
+}

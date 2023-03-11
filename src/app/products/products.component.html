@@ -1,0 +1,48 @@
+<a *ngIf='!checkout' id="cart-link" (click)="goToCheckout()" href="#checkout">
+  <img src="../../assets/cart.png" alt="cart" width="32px" height="32px" />
+</a>
+<div *ngIf='!checkout' id="products-flex">
+  <table *ngFor="let product of products">
+    <tr>
+      <td id="img-cell">
+        <img
+          [src]="'../../assets/' + product.name + '.jpg'"
+          [alt]="product.name"
+        />
+      </td>
+      <td id="info-cell">
+        <p>{{ product.name }}</p>
+        <p>{{ product.price }}</p>
+        <hr />
+        <input
+          #quantity
+          type="number"
+          size="2"
+          max="99"
+          min="1"
+          value="1"
+        /><button
+          (click)="addToCart(product.name, product.id, product.price, quantity.value);quantity.value='1';"
+        >
+          Add to Cart
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+<div *ngIf='checkout' id="checkout-backdrop">
+  <div id="checkout" *ngIf="checkout">
+    <h3>Checkout</h3>
+    <p *ngFor='let item of Cart'>
+      {{ item.name }} <i>({{ item.quantity }})</i> --- {{ item.cost }}
+    </p>
+    <hr />
+    <p><b>Total: {{ total }}</b></p>
+    <div id="buttons">
+      <button id="checkoutBtn" (click)="completeCheckout()">Checkout</button>
+      <button class="otherBtn" (click)="clearCart()">Clear Cart</button>
+      <button class="otherBtn" (click)="closeCart()">Close</button>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,52 @@
+div#welcome {
+  background: url('../assets/backdrop.jpg');
+  background-size: cover;
+  width: 101vw;
+  height: 100vh;
+}
+
+h1 {
+  margin-top: 0;
+  position: absolute;
+  z-index: 2;
+  top: 30vh;
+  left: 30vw;
+  width: 40vw;
+  height: max-content;
+  text-align: center;
+  color: gray;
+}
+
+a {
+  font-size: 50%;
+  position: absolute;
+  z-index: 2;
+  top: 80vh;
+  left: 43vw;
+  width: 8vw;
+  height: max-content;
+  padding: 2vh 3vw;
+  background-color: orange;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.75s;
+}
+
+a:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: orange;
+  border: 3px solid orange;
+  text-decoration: underline;
+  transition: all 0.75s;
+}
+
+div#cover {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 101vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
