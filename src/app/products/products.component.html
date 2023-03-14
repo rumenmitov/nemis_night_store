@@ -1,6 +1,9 @@
 <a title='My Cart' *ngIf="!checkout" id="cart-link" (click)="goToCheckout()" href="#checkout">
   <img src="../../assets/cart.png" alt="cart" width="40px" height="40px" />
 </a>
+<h2 *ngIf="!checkout">
+  PRODUCTS
+</h2>
 <div *ngIf="!checkout" id="products-flex">
   <table *ngFor="let product of products">
     <tr>
@@ -22,7 +25,7 @@
           min="1"
           value="1"
         /><button
-          class="addToCart"
+          class="addToCart clickable"
           (click)="addToCart(product.name, product.id, product.price, quantity.value);quantity.value='1';"
         >
           Add to Cart
@@ -37,7 +40,7 @@
     <p *ngFor="let item of Cart">
       {{ item.name }} <i>({{ item.quantity }})</i> --- {{ item.cost }} €
       <img
-	class='remove'
+	class='remove clickable'
         src="../../assets/remove.png"
         alt="remove"
 	width='25px' height='25px'
@@ -47,9 +50,9 @@
     <hr />
     <p><b>Total = {{ total }} €</b></p>
     <div id="buttons">
-      <button id="checkoutBtn" (click)="completeCheckout()">Checkout</button>
-      <button class="otherBtn" (click)="clearCart()">Clear Cart</button>
-      <button class="otherBtn" (click)="closeCart()">Close</button>
+      <button class='clickable' id="checkoutBtn" (click)="completeCheckout()">Checkout</button>
+      <button class="otherBtn clickable" (click)="clearCart()">Clear Cart</button>
+      <button class="otherBtn clickable" (click)="closeCart()">Close</button>
     </div>
   </div>
 </div>

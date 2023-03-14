@@ -1,39 +1,78 @@
 #footer {
-  width: 101vw;
+  width: 94vw;
   height: max-content;
-  padding: 1vh 1.5vw;
+  padding: 1vh 6vw;
+  padding-right: 0;
   background-color: black;
   color: white;
   font-size: 50%;
   display: grid;
-  grid-template-columns: auto auto; 
+  grid-template-columns: auto auto auto; 
 }
 
 #socials {
   grid-column: 1;
   display: inline-block;
   width: 21vw;
+  padding-top: 8vh;
 }
 
 #socials .social {
   display: flex;
   align-items: center;
+  margin-top: 3vh;
 }
 
-#socials p {
-  font-size: 150%;
+.social-info {
+  margin-left: 2vw;
+  text-decoration: none;
+  color: white;
 }
 
 #socials img {
-  width: 25%;
+  width: 15%;
   aspect-ratio: 1 / 1;
   background-color: #999999aa;
   border: 1px solid #999999aa;
   border-radius: 50px;
 }
 
-#contact {
+#socials a img {
+  width: 15%;
+  aspect-ratio: 1 / 1;
+  background-color: #999999aa;
+  border: 1px solid #999999aa;
+  border-radius: 50px;
+}
+
+header {
   grid-column: 2;
+  width: 20vw;
+  padding: 18vh 3vw;
+  border-left: 5px white solid;
+  border-right: 5px white solid;
+  font-size: 120%;
+  font-weight: bold;
+  text-align: center;
+}
+
+#contact {
+  grid-column: 3;
   display: inline-block;
-  width: 40vw;
+  width: max-content;
+}
+
+#contact input, textarea {
+  width: 25vw;
+  box-sizing:content-box;
+  -moz-box-sizing:content-box;
+}
+
+#submitBtn {
+  width: 25.5vw;
+  padding: 1vh 0;
+  border: 1px solid purple;
+  background-color: purple;
+  color: white;
+  font-weight: bold;
 }
