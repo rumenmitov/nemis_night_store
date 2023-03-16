@@ -26,6 +26,7 @@ let app = express()
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
   .use(express.static(__dirname + '/dist/store'))
+  .use('/success', express.static(__dirname + '/server', { index: 'success.html' }))
   .post('/checkout', async (req, res) => {
     let line_items = [];
     req.body.forEach((item: any) => {
@@ -37,7 +38,7 @@ let app = express()
     const session = await stripe.checkout.sessions.create({
       line_items: line_items,
       mode: 'payment',
-      success_url: `https://${process.env.DOMAIN}/server/checkoutSuccess.html`,
+      success_url: `https://${process.env.DOMAIN}/success`,
       cancel_url: `https://${process.env.DOMAIN}`
     });
 
