@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class ProductsComponent {
   products: any = [
-    { name: 'sweater', id: '1', price: 50 },
-    { name: 'beanie', id: '2', price: 20 },
-    { name: 'bunny', id: '3', price: 18 }
+    { name: 'Sweater', id: 'price_1MlbO8LxattdPQR8QNDMZUnw', price: 50 },
+    { name: 'Beanie', id: 'price_1Mm0uDLxattdPQR8vJbYmCjP', price: 20 },
+    { name: 'Bunny', id: 'price_1Mm0vWLxattdPQR8icOybZi7', price: 18 }
   ];
 
   checkout: boolean = false;
@@ -99,12 +99,14 @@ export class ProductsComponent {
   completeCheckout() {
     let cart: any = localStorage.getItem('cart');
     if (cart) {
-      cart = JSON.parse(cart as string);
 
       let xhttp = new XMLHttpRequest();
-      xhttp.open('post', '/checkout');
-      // NOTE: cart object must be adjusted for stripe!
+      xhttp.open('POST', 'https://localhost/checkout');
+      xhttp.setRequestHeader('Content-type', 'application/json');
       xhttp.send(cart);
+      xhttp.onload = function() {
+	location.href = this.responseText;
+      };
     }
   }
 

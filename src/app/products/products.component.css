@@ -96,6 +96,14 @@ div#checkout {
   background-color: white;
 }
 
+.cart-item {
+  font-size: 75%;
+}
+
+#total {
+  font-size: 80%;
+}
+
 #buttons {
   display: flex;
 }
