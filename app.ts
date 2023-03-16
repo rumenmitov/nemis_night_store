@@ -55,6 +55,7 @@ let app = express()
       <p>Message:</p><br>
       <pre><i>${req.body.message}</i></pre>`
     });
+    res.redirect("https://" + process.env.DOMAIN);
   });
 
 // Hosting server

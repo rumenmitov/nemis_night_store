@@ -11,13 +11,25 @@ export class FooterComponent {
   }
 
   formNotify() {
-    if (Notification.permission != 'granted') Notification.requestPermission().then((permission) => {
-      if (permission == 'granted') {
-	let welcomeNotification = new Notification("Welcome to Nemi's Night!");
-	setTimeout(()=>{
-	  welcomeNotification.close();
-	}, 3000);
-      }
-    })
-  }  
+    if (Notification.permission != 'granted') {
+      Notification.requestPermission().then((permission) => {
+        if (permission == 'granted') {
+          let welcomeNotification = new Notification(
+            "Welcome to Nemi's Night!"
+          );
+          setTimeout(() => {
+            welcomeNotification.close();
+          }, 3000);
+        } else {
+          return;
+        }
+      });
+    }
+    let notification = new Notification('Message was sent!', {
+      icon: '../../assets/tick.png'
+    });
+    setTimeout(() => {
+      notification.close();
+    }, 2000);
+  }
 }
