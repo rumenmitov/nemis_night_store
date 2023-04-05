@@ -10,7 +10,7 @@ export class ProductsComponent {
     { name: 'Sweater', id: 'price_1MlbO8LxattdPQR8QNDMZUnw', price: 50, isAlt: false },
     { name: 'Beanie', id: 'price_1Mm0uDLxattdPQR8vJbYmCjP', price: 20, isAlt: false },
     { name: 'Bunny', id: 'price_1Mm0vWLxattdPQR8icOybZi7', price: 18, isAlt: false },
-    { name: 'Turtle', id: 'price_fake_id_here', price: 10, isAlt: false }
+    { name: 'Turtle', id: 'price_1Mtcs5LxattdPQR8iTmimkOD', price: 10, isAlt: false }
   ];
 
   checkout: boolean = false;
