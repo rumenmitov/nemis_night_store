@@ -102,7 +102,7 @@ export class ProductsComponent {
     if (cart) {
 
       let xhttp = new XMLHttpRequest();
-      xhttp.open('POST', 'https://localhost/checkout');
+      xhttp.open('POST', '/checkout');
       xhttp.setRequestHeader('Content-type', 'application/json');
       xhttp.send(cart);
       xhttp.onload = function() {
