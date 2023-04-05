@@ -1,17 +1,33 @@
-<a title='My Cart' *ngIf="!checkout" id="cart-link" (click)="goToCheckout()" href="#checkout">
+<a
+  title="My Cart"
+  *ngIf="!checkout"
+  id="cart-link"
+  (click)="goToCheckout()"
+  href="#checkout"
+>
   <img src="../../assets/cart.png" alt="cart" width="40px" height="40px" />
 </a>
-<h2 *ngIf="!checkout">
-  PRODUCTS
-</h2>
+<h2 *ngIf="!checkout">PRODUCTS</h2>
 <div *ngIf="!checkout" id="products-flex">
   <table *ngFor="let product of products">
     <tr>
       <td id="img-cell">
         <img
+	  *ngIf="!product.isAlt"
           [src]="'../../assets/' + product.name + '.jpg'"
           [alt]="product.name"
+	  class="animate__animated animate__fadeIn"
         />
+        <img
+	  *ngIf="product.isAlt"
+          [src]="'../../assets/' + product.name + '-alt.jpg'"
+          [alt]="product.name"
+	  class="animate__animated animate__fadeIn"
+        />
+	<div class="imgControls">
+	  <div class="altImg prevImg clickable" (click)="product.isAlt = !product.isAlt"><</div>
+	  <div class="altImg nextImg clickable" (click)="product.isAlt = !product.isAlt">></div>
+	</div>
       </td>
       <td id="info-cell">
         <p>{{ product.name }}</p>
@@ -37,21 +53,26 @@
 <div *ngIf="checkout" id="checkout-backdrop">
   <div id="checkout" *ngIf="checkout">
     <h3>My Cart</h3>
-    <p class='cart-item' *ngFor="let item of Cart">
+    <p class="cart-item" *ngFor="let item of Cart">
       {{ item.name }} <i>({{ item.quantity }})</i> --- {{ item.cost }} €
       <img
-	class='remove clickable'
+        class="remove clickable"
         src="../../assets/remove.png"
         alt="remove"
-	width='25px' height='25px'
+        width="25px"
+        height="25px"
         (click)="removeItem(item.name, item.id, item.price, item.cost)"
       />
     </p>
     <hr />
-    <p id='total'><b>Total = {{ total }} €</b></p>
+    <p id="total"><b>Total = {{ total }} €</b></p>
     <div id="buttons">
-      <button class='clickable' id="checkoutBtn" (click)="completeCheckout()">Checkout</button>
-      <button class="otherBtn clickable" (click)="clearCart()">Clear Cart</button>
+      <button class="clickable" id="checkoutBtn" (click)="completeCheckout()">
+        Checkout
+      </button>
+      <button class="otherBtn clickable" (click)="clearCart()">
+        Clear Cart
+      </button>
       <button class="otherBtn clickable" (click)="closeCart()">Close</button>
     </div>
   </div>
