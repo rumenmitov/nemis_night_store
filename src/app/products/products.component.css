@@ -100,7 +100,7 @@ input {
 }
 
 div#checkout-backdrop {
-  width: 101vw;
+  width: 100vw;
   height: 100vh;
   background-color: purple;
 }
