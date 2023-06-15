@@ -1,3 +1,8 @@
+:root {
+  --clickable-main: black;
+  --accent-main: black;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -13,12 +18,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: purple;
+  background-color: var(--clickable-main);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(90, 10, 120);
+  background-color: var(--clickable-main);
 }
 
 .clickable:hover {

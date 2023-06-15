@@ -5,8 +5,8 @@ a#cart-link {
   width: 40px;
   height: 40px;
   padding: 8px;
-  background-color: purple;
-  border: 1px solid purple;
+  background-color: var(--clickable-main);
+  border: 1px solid var(--clickable-main);
   border-radius: 5px;
   display: flex;
 }
@@ -18,7 +18,7 @@ a#cart-link > img {
 
 h2 {
   text-align: center;
-  color: orange;
+  color: var(--accent-main);
 }
 
 div#products-flex {
@@ -33,18 +33,15 @@ div#products-flex table {
   padding: 1vh 1.5vw;
   width: 80vw;
   text-align: center;
-  border: 3px solid orange;
+  border: 1px solid var(--accent-main);
   border-radius: 5px;
-}
-
-#img-cell {
-  border-right: 5px solid purple;
 }
 
 div#products-flex table img {
   padding: 2vh 3vw;
   width: 24vw;
-  aspect-ratio: auto;
+  height: 16vw;
+  object-fit: contain;
 }
 
 div#products-flex table .imgControls {
@@ -56,10 +53,16 @@ div#products-flex table .altImg {
   display: inline;
   padding: 1vh 1.5vw;
   margin: none;
-  color: white;
-  background-color: purple;
-  border: 1px solid #550055;
+  color: var(--clickable-main);
+  border: 1px solid var(--clickable-main);
   border-radius: 50px;
+  transition: all 0.5s;
+}
+
+div#products-flex table .altImg:hover {
+  background-color: var(--clickable-main);
+  color: white;
+  transition: all 0.5s;
 }
 
 div#products-flex table .nextImg {
@@ -86,8 +89,8 @@ div#products-flex table .nextImg {
 
 input {
   font-size: 90%;
-  border-color: purple;
-  color: purple;
+  border-color: var(--clickable-main);
+  color: var(--clickable-main);
   width: 4vw;
   text-align: center;
 }
@@ -95,14 +98,22 @@ input {
 .addToCart {
   font-size: 90%;
   font-weight: bold;
-  background-color: purple;
+  color: var(--clickable-main);
+  font-decoration: none;
+  transition: all 0.5s;
+}
+
+.addToCart:hover {
+  background-color: var(--clickable-main);
   color: white;
+  text-decoration: underline;
+  transition: all 0.5s;
 }
 
 div#checkout-backdrop {
   width: 100vw;
   height: 100vh;
-  background-color: purple;
+  background-color: white;
 }
 
 div#checkout {
@@ -110,7 +121,7 @@ div#checkout {
   width: 40vw;
   height: max-content;
   padding: 5vh 5vw;
-  border: 2px solid purple;
+  border: 2px solid var(--clickable-main);
   border-radius: 5px;
   background-color: white;
 }
@@ -128,7 +139,7 @@ div#checkout {
 }
 
 #buttons > * {
-  border: 1px solid purple;
+  border: 1px solid var(--clickable-main);
   border-radius: 5px;
   margin-right: 1vw;
   font-size: 90%;
@@ -137,10 +148,28 @@ div#checkout {
 #checkoutBtn {
   align-content: flex-start;
   font-weight: bold;
-  background-color: purple;
+  color: var(--clickable-main);
+  text-decoration: none;
+  transition: all 1s;
+}
+
+#checkoutBtn:hover {
+  background-color: var(--clickable-main);
   color: white;
+  text-decoration: underline;
+  transition: all 1s;
 }
 
 .otherBtn {
   align-content: flex-end;
+  color: var(--clickable-main);
+  text-decoration: none;
+  transition: all 1s;
+}
+
+.otherBtn:hover {
+  background-color: var(--clickable-main);
+  color: white;
+  text-decoration: underline;
+  transition: all 1s;
 }

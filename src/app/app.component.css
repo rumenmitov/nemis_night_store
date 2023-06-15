@@ -14,7 +14,8 @@ h1 {
   width: 40vw;
   height: max-content;
   text-align: center;
-  color: gray;
+  color: white;
+  text-shadow: 0px 0px 25px var(--accent-main);
 }
 
 a {
@@ -26,7 +27,7 @@ a {
   width: 8vw;
   height: max-content;
   padding: 2vh 3vw;
-  background-color: orange;
+  background-color: var(--clickable-main);
   color: white;
   text-decoration: none;
   text-align: center;
@@ -35,8 +36,8 @@ a {
 
 a:hover {
   background-color: rgba(0, 0, 0, 0);
-  color: orange;
-  border: 3px solid orange;
+  color: var(--clickable-main);
+  border: 3px solid var(--clickable-main);
   text-decoration: underline;
   transition: all 0.75s;
 }

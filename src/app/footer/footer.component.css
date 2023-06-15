@@ -7,7 +7,7 @@
   color: white;
   font-size: 50%;
   display: grid;
-  grid-template-columns: auto auto auto; 
+  grid-template-columns: auto auto auto;
 }
 
 #socials {
@@ -71,8 +71,8 @@ header {
 #submitBtn {
   width: 25.5vw;
   padding: 1vh 0;
-  border: 1px solid purple;
-  background-color: purple;
+  border: 1px solid white;
+  background-color: var(--clickable-main);
   color: white;
   font-weight: bold;
 }
