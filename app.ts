@@ -25,7 +25,7 @@ let app = express()
   .use(cors())
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
-  .use(express.static(__dirname + '/dist/store'))
+  .use(express.static(__dirname + '/dist/nemis'))
   .use('/success', express.static(__dirname + '/server', { index: 'success.html' }))
   .post('/checkout', async (req, res) => {
     let line_items = [];
