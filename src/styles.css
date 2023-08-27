@@ -3,6 +3,10 @@
   --accent-main: black;
 }
 
+* {
+  font-family: "Roboto";
+}
+
 html {
   scroll-behavior: smooth;
 }

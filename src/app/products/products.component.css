@@ -34,7 +34,7 @@ div#products-flex table {
   width: 80vw;
   text-align: center;
   border: 1px solid var(--accent-main);
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 div#products-flex table img {
@@ -85,6 +85,7 @@ div#products-flex table .nextImg {
 
 #info-cell {
   padding-left: 3vw;
+  display: inline;
 }
 
 input {
@@ -95,11 +96,23 @@ input {
   text-align: center;
 }
 
+input.item-quantity {
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 1000px) {
+  input.item-quantity {
+    width: 8vw;
+  }
+}
+
 .addToCart {
+  border: 1px solid black;
+  border-radius: 8px;
   font-size: 90%;
   font-weight: bold;
   color: var(--clickable-main);
-  font-decoration: none;
+  text-decoration: none;
   transition: all 0.5s;
 }
 
