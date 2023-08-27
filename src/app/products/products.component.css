@@ -98,6 +98,7 @@ input {
 
 input.item-quantity {
   border-radius: 8px;
+  margin-right: 8px;
 }
 
 @media screen and (max-width: 1000px) {
