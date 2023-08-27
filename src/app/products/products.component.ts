@@ -7,10 +7,9 @@ import { Component } from '@angular/core';
 })
 export class ProductsComponent {
   products: any = [
-    { name: 'Sweater', id: 'price_1MlbO8LxattdPQR8QNDMZUnw', price: 50, isAlt: false },
-    { name: 'Beanie', id: 'price_1Mm0uDLxattdPQR8vJbYmCjP', price: 20, isAlt: false },
-    { name: 'Bunny', id: 'price_1Mm0vWLxattdPQR8icOybZi7', price: 18, isAlt: false },
-    { name: 'Turtle', id: 'price_1Mtcs5LxattdPQR8iTmimkOD', price: 10, isAlt: false }
+    { name: 'Turtle', id: 'price_1Mtcs5LxattdPQR8iTmimkOD', price: 10, isAlt: false },
+    { name: 'Dino', id: 'price_1Njk3hLxattdPQR81kMzVbLn', price: 15, isAlt: false },
+    { name: 'Octopus', id: 'price_1Njk5MLxattdPQR8iq7QCsRl', price: 15, isAlt: false },
   ];
 
   checkout: boolean = false;
